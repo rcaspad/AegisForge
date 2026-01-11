@@ -1,0 +1,8 @@
+# Ignore Python and Node environments, git, and build artifacts
+**/node_modules
+**/.venv
+**/.git
+**/__pycache__
+**/.next
+**/dist
+**/.DS_Store

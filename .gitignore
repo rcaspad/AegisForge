@@ -1,0 +1,36 @@
+
+# --- SENSITIVE ENV FILES ---
+.env
+.env.local
+backend/.env
+
+# --- NODE & FRONTEND ---
+node_modules/
+frontend/node_modules/
+.next/
+dist/
+build/
+
+# --- PYTHON & BACKEND ---
+.venv/
+venv/
+env/
+__pycache__/
+backend/__pycache__/
+*.pyc
+*.pyo
+
+# --- SYSTEM & LOGS ---
+.DS_Store
+Thumbs.db
+*.log
+
+# --- OTHERS ---
+# Ignore test cache, coverage, and editor settings
+*.coverage
+coverage/
+.vscode/
+
+# --- SAFETY: Never track env files ---
+!backend/.env.example
+!frontend/.env.example

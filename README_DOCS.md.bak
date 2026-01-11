@@ -1,0 +1,184 @@
+Moved to /archive for cleanup
+# 📚 Índice de Documentación - Proyecto Aegis Forge
+
+**Versión:** 1.0.3 | **Última Actualización:** 2026-01-11
+
+Este índice te guía a través de todos los documentos del proyecto, organizados por prioridad y relevancia.
+
+---
+
+## 🎯 Documentos Principales (LÉEME PRIMERO)
+
+### 1. [PROJECT_STATUS.md](./PROJECT_STATUS.md) - 🆕 Estado Actual del Sistema
+**Estado:** 🟢 Actualizado (2026-01-11)  
+**Contenido:** Dashboard ejecutivo con estado operacional de todos los componentes, métricas, roadmap y troubleshooting.  
+**Cuándo leer:** Para obtener una vista rápida y completa del estado actual del proyecto.
+
+### 1.1. [SESSION_SUMMARY.md](./SESSION_SUMMARY.md) - 🆕 Resumen de Sesión Actual
+**Estado:** 🟢 Actualizado (2026-01-11)  
+**Contenido:** Resumen de trabajo completado en esta sesión: Code Display UI, Vaccine #006, documentación actualizada.  
+**Cuándo leer:** Para entender qué se hizo hoy y cuáles son los próximos pasos inmediatos.
+
+### 2. [SPEC.MD](./SPEC.MD) - Especificación del Sistema
+**Estado:** 📘 Documento Maestro  
+**Contenido:** Arquitectura completa del sistema multi-agente, principios de diseño, stack tecnológico, y flujo de trabajo.  
+**Cuándo leer:** Inicio del proyecto o cuando necesites entender la visión completa.
+
+---
+
+## 🧬 Memoria y Aprendizajes
+
+### 2. [ai_learnings_v2.md](./ai_learnings_v2.md) - Bitácora de Vacunas
+**Estado:** ✅ Activo (Vacunas #001-#007, Gemini 3 preview)  
+**Contenido:**
+- Historial de errores y soluciones (Vacunas #001-#007)
+- Reglas de Oro por agente (incluye Retry+Cache+Rate Limit)
+- Configuración de modelos Gemini 3 Preview
+- Estado del proyecto actualizado
+
+**Cuándo leer:** 
+- Antes de implementar nuevos agentes
+- Al debuggear errores recurrentes
+- Para entender las lecciones aprendidas
+
+### 3. [ai_learnings.md](./ai_learnings.md) - ⚠️ DEPRECADO
+**Estado:** 🗄️ Archivo Histórico  
+**Nota:** Reemplazado por `ai_learnings_v2.md`. Solo para referencia histórica.
+
+---
+
+## 📊 Reportes de Progreso
+
+### 4. [AGENT_03_PROGRESS.md](./AGENT_03_PROGRESS.md) - Estado del Constructor
+**Estado:** 🔄 En Progreso  
+**Contenido:**
+- Implementación del Agente 03 (El Constructor)
+- Tareas completadas y pendientes
+- Reglas de Oro para generación de código
+- Integración con frontend (próxima fase)
+
+**Cuándo leer:** Para entender el estado actual del Constructor y próximos pasos.
+
+---
+
+## 🩹 Vacunas Específicas
+
+### 5. [VACCINE_005_MODEL_VERSIONING.md](./VACCINE_005_MODEL_VERSIONING.md)
+**Estado:** ✅ Completada  
+**Contenido:**
+- Análisis del error 404 (Model Not Found)
+- Migración de gemini-1.5-* a gemini-2.0-*
+- Creación de `model_config.py`
+- Centralización de configuración
+
+**Cuándo leer:** 
+- Si hay errores de API de modelos
+- Al agregar nuevos agentes
+- Para entender la arquitectura de configuración
+
+---
+
+## 🗂️ Organización por Tema
+
+### Arquitectura del Sistema
+1. [SPEC.MD](./SPEC.MD) - Diseño completo
+2. [model_config.py](./backend/model_config.py) - Configuración de modelos
+
+### Implementación de Agentes
+1. [AGENT_03_PROGRESS.md](./AGENT_03_PROGRESS.md) - Estado del Constructor
+2. [agent_visionary.py](./backend/agent_visionary.py) - Agente 01
+3. [agent_architect.py](./backend/agent_architect.py) - Agente 02
+4. [agent_constructor.py](./backend/agent_constructor.py) - Agente 03
+
+### Debugging y Lecciones
+1. [ai_learnings_v2.md](./ai_learnings_v2.md) - Bitácora principal
+2. [VACCINE_005_MODEL_VERSIONING.md](./VACCINE_005_MODEL_VERSIONING.md) - Caso específico
+
+---
+
+## 📋 Checklist de Lectura para Nuevos Desarrolladores
+
+- [ ] 1. Lee [PROJECT_STATUS.md](./PROJECT_STATUS.md) para el estado actual (10 min) ⭐ NUEVO
+- [ ] 2. Lee [SPEC.MD](./SPEC.MD) completo (30 min)
+- [ ] 3. Revisa [ai_learnings_v2.md](./ai_learnings_v2.md) - Sección "Reglas de Oro" (15 min)
+- [ ] 4. Lee [AGENT_03_PROGRESS.md](./AGENT_03_PROGRESS.md) - Estado del Constructor (10 min)
+- [ ] 5. Opcional: [VACCINE_005_MODEL_VERSIONING.md](./VACCINE_005_MODEL_VERSIONING.md) si vas a trabajar con modelos (5 min)
+
+**Tiempo total:** ~1 hora y 10 minutos
+
+---
+
+## 🚀 Estado Actual del Proyecto
+
+| Componente | Estado | Documentación |
+|:-----------|:-------|:--------------|
+| Backend (FastAPI + LangGraph) | ✅ Funcionando | [SPEC.MD](./SPEC.MD) |
+| Agente 01: Visionary | ✅ Implementado | [ai_learnings_v2.md](./ai_learnings_v2.md) |
+| Agente 02: Architect | ✅ Implementado | [ai_learnings_v2.md](./ai_learnings_v2.md) |
+| Agente 03: Constructor | ✅ Implementado | [AGENT_03_PROGRESS.md](./AGENT_03_PROGRESS.md) |
+| Frontend (Next.js) | ✅ Funcionando | [SPEC.MD](./SPEC.MD) |
+| Code Display UI | ✅ Implementada | [AGENT_03_PROGRESS.md](./AGENT_03_PROGRESS.md) |
+| Vacunas #001-#007 | ✅ Aplicadas | [ai_learnings_v2.md](./ai_learnings_v2.md) |
+| Gemini 3 Preview Integration | ✅ Completada | [VACCINE_005_MODEL_VERSIONING.md](./VACCINE_005_MODEL_VERSIONING.md) |
+| Testing E2E | 🔄 En Progreso | [AGENT_03_PROGRESS.md](./AGENT_03_PROGRESS.md) |
+| Agente 04: Auditor | ⏳ Por implementar | [SPEC.MD](./SPEC.MD) |
+| Agente 05: Operador | ⏳ Por implementar | [SPEC.MD](./SPEC.MD) |
+| Agente 06: Escriba | ⏳ Por implementar | [SPEC.MD](./SPEC.MD) |
+
+---
+
+## 🔍 Búsqueda Rápida
+
+¿Necesitas información sobre...?
+
+- **Errores de API/Fetch:** → [ai_learnings_v2.md](./ai_learnings_v2.md) - Vacunas #001, #003, #004
+- **Errores de modelos Gemini:** → [VACCINE_005_MODEL_VERSIONING.md](./VACCINE_005_MODEL_VERSIONING.md)
+- **CORS issues:** → [ai_learnings_v2.md](./ai_learnings_v2.md) - Vacuna #004
+- **Timeout management:** → [ai_learnings_v2.md](./ai_learnings_v2.md) - Vacuna #003
+- **Generación de código:** → [AGENT_03_PROGRESS.md](./AGENT_03_PROGRESS.md)
+- **Arquitectura general:** → [SPEC.MD](./SPEC.MD)
+
+---
+
+## 📝 Convenciones de Documentación
+
+### Estados de Documentos
+- 📘 **Documento Maestro:** Especificación principal del sistema
+- ✅ **Activo:** Documento actualizado y en uso
+- 🔄 **En Progreso:** Documento que se actualiza frecuentemente
+- 🗄️ **Histórico/Deprecado:** Solo para referencia, no usar
+- ⏳ **Pendiente:** Característica no implementada aún
+
+### Formato de Vacunas
+Cada vacuna debe incluir:
+1. **ID único** (ej: #005)
+2. **Fecha** de identificación
+3. **Agente afectado**
+4. **Problema** (descripción del error)
+5. **Causa raíz** (análisis técnico)
+6. **Solución** (implementación concreta)
+7. **Regla de Oro** (prevención futura)
+
+---
+
+## 🆘 ¿Cómo Contribuir a la Documentación?
+
+1. **Encontraste un error nuevo:**
+   - Agrégalo a [ai_learnings_v2.md](./ai_learnings_v2.md) con el próximo ID de vacuna
+   - Incluye análisis de causa raíz
+   - Define una "Regla de Oro" para prevenir reincidencia
+
+2. **Completaste una tarea:**
+   - Actualiza el estado en el documento relevante ([AGENT_03_PROGRESS.md](./AGENT_03_PROGRESS.md), etc.)
+   - Marca checkboxes como `[x]`
+   - Agrega fecha de completado
+
+3. **Implementaste un nuevo agente:**
+   - Crea un archivo `AGENT_XX_PROGRESS.md` siguiendo la estructura del Agente 03
+   - Agrega entrada en este índice
+   - Documenta reglas específicas en [ai_learnings_v2.md](./ai_learnings_v2.md)
+
+---
+
+**Última revisión:** 2026-01-11  
+**Mantenido por:** GitHub Copilot (Claude Sonnet 4.5)
