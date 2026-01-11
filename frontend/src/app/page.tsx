@@ -201,9 +201,9 @@ export default function Home() {
           for (const [filepath, content] of Object.entries(data.modified_files)) {
             const idx = updated.findIndex(f => f.filepath === filepath);
             if (idx !== -1) {
-              updated[idx] = { filepath, content };
+              updated[idx] = { filepath, content: content as string };
             } else {
-              updated.push({ filepath, content });
+              updated.push({ filepath, content: content as string });
             }
           }
           return updated;
