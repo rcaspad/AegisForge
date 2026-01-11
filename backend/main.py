@@ -182,4 +182,44 @@ async def export_project(data: ExportRequest):
             headers={"Content-Disposition": "attachment; filename=aegis_project.zip"}
         )
     except Exception as e:
-        logger.
+        logger.error(f"Error exportando ZIP: {e}")
+        raise HTTPException(status_code=500, detail="Error generando el archivo ZIP")
+
+@app.post("/refine")
+async def refine_code(request: RefineRequest):
+    print(f"🔧 Refinando código: {request.instruction}")
+    
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        raise HTTPException(status_code=500, detail="Falta GEMINI_API_KEY en variables de entorno")
+
+    prompt = f"""
+    ACT AS: Senior Code Refactorer.
+    CONTEXT: {json.dumps(request.current_files, indent=2)}
+    INSTRUCTION: {request.instruction}
+    TASK: Rewrite ONLY the files that need modification.
+    OUTPUT: Valid JSON {{ "filename": "new content" }}.
+    """
+
+    try:
+        refine_llm = ChatGoogleGenerativeAI(
+            model="gemini-1.5-flash",
+            temperature=0.1,
+            google_api_key=api_key
+        )
+        
+        response = refine_llm.invoke(prompt)
+        content = str(response.content).strip()
+        
+        # Limpieza de JSON (Markdown fix)
+        if content.startswith("```json"): content = content[7:-3].strip()
+        if content.startswith("```"): content = content[3:-3].strip()
+        
+        new_files = json.loads(content)
+        return {"success": True, "modified_files": new_files}
+        
+    except Exception as e:
+        logger.error(f"Error en refinamiento: {e}")
+        raise HTTPException(status_code=500, detail=f"Error al refinar código: {str(e)}")
+
+# --- FIN DEL ARCHIVO ---
