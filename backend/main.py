@@ -394,10 +394,3 @@ async def chat(request: Request, payload: ChatRequest):
         CHAT_CACHE.popitem(last=False)
 
     return payload
-
-if __name__ == "__main__":
-    # Solo para desarrollo local. Render nunca debe ejecutar este bloque.
-    print("\n❌ ERROR: No ejecutes 'python main.py' directamente.")
-    print("✅ Usa: uvicorn backend.main:app --host 0.0.0.0 --port 8000\n")
-    import sys
-    sys.exit(1)
