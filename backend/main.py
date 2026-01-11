@@ -11,7 +11,7 @@ import zipfile
 import os
 from collections import OrderedDict
 import logging
-from .model_config import get_model
+from model_config import get_model
 from langchain_core.messages import HumanMessage, AIMessage
 from slowapi import Limiter
 from slowapi.util import get_remote_address
