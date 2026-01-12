@@ -34,10 +34,15 @@ logger = logging.getLogger("uvicorn")
 
 # Intentar importar el grafo (LangGraph)
 try:
-    from .graph import graph
-except ImportError as e:
-    logger.error(f"⚠️ Error importando graph: {e}. Asegúrate de ejecutar con uvicorn backend.main:app")
-    graph = None
+    # Intento 1: Importación absoluta (Funciona en Render/Producción)
+    from graph import graph
+except ImportError:
+    try:
+        # Intento 2: Importación relativa (Funciona en Local/Paquete)
+        from .graph import graph
+    except ImportError as e:
+        logger.error(f"⚠️ Error FATAL importando graph: {e}")
+        graph = None
 
 # Inicializar App
 app = FastAPI(title="Aegis Forge Backend")
