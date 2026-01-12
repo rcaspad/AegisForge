@@ -23,6 +23,8 @@ export default function Home() {
 
   // Vaccine #001: Do not hardcode backend URL; require env var
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+  // Debug: Mostrar la URL de la API en consola para depuración
+  console.log("🔗 API URL:", API_URL);
 
   // Timer for latency feedback (Vaccine #003)
   useEffect(() => {
@@ -63,7 +65,9 @@ export default function Home() {
         return;
       }
       try {
-        const res = await fetch(`${API_URL}/`);
+        // Evitar doble barra en la URL
+        const url = API_URL.endsWith("/") ? API_URL : `${API_URL}/`;
+        const res = await fetch(url);
         if (res.ok) setStatus('online');
         else setStatus('offline');
       } catch {
@@ -112,7 +116,8 @@ export default function Home() {
 
       try {
         // Vaccine #004: Protocol Consistency - ensure API_URL has protocol
-        const apiUrl = `${API_URL}/chat`;
+        // Evitar doble barra en la URL
+        const apiUrl = API_URL.endsWith("/") ? `${API_URL}chat` : `${API_URL}/chat`;
         if (!apiUrl.startsWith('http://') && !apiUrl.startsWith('https://')) {
           throw new Error('INVALID_PROTOCOL: API URL must include http:// or https://');
         }
@@ -185,7 +190,9 @@ export default function Home() {
     if (!refineInstruction.trim() || isRefining) return;
     setIsRefining(true);
     try {
-      const response = await fetch(`${API_URL}/refine`, {
+      // Evitar doble barra en la URL
+      const refineUrl = API_URL.endsWith("/") ? `${API_URL}refine` : `${API_URL}/refine`;
+      const response = await fetch(refineUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -313,7 +320,9 @@ export default function Home() {
                       acc[f.filepath] = f.content;
                       return acc;
                     }, {} as Record<string, string>);
-                    const res = await fetch(`${API_URL}/export`, {
+                    // Evitar doble barra en la URL
+                    const exportUrl = API_URL.endsWith("/") ? `${API_URL}export` : `${API_URL}/export`;
+                    const res = await fetch(exportUrl, {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({ files: filesObj })
@@ -440,7 +449,9 @@ export default function Home() {
                         acc[f.filepath] = f.content;
                         return acc;
                       }, {} as Record<string, string>);
-                      const res = await fetch(`${API_URL}/export`, {
+                      // Evitar doble barra en la URL
+                      const exportUrl = API_URL.endsWith("/") ? `${API_URL}export` : `${API_URL}/export`;
+                      const res = await fetch(exportUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ files: filesObj })
